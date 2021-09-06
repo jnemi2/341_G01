@@ -8,7 +8,7 @@ def crear_mes(nombre, abreviatura, cantidad_dias):
     :return str con el mensaje de creación del mes
     """
 
-    return "Se creó el mes {}, que se abrevia {} y" \
+    return "Se creó el mes {}, que se abrevia {} y " \
            "contiene {} días".format(nombre, abreviatura,
                                      cantidad_dias)
 
