@@ -57,4 +57,22 @@ def new_bill():
 
 
 def new_product():
-    return 0
+    description = input("Ingrese la descrición del producto: ")
+    price = input("Ingrese el precio: $")
+    while not price.isdigit():
+        price = input("Error. Ingrese el precio : $")
+    price = float(price)
+
+    # Find max product code
+    max_code = 0
+    for p in catalogo:
+        if p['codigo'] > max_code:
+            max_code = p['codigo']
+
+    product = dict()
+    product.setdefault('codigo', max_code + 1)
+    product.setdefault('desc', description)
+    product.setdefault('precio', price)
+    catalogo.append(product)
+
+    return product

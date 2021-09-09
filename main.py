@@ -15,7 +15,8 @@ def menu():
     elif selection == "2":
         prod.new_bill()
     elif selection == "3":
-        prod.new_product()
+        p = prod.new_product()
+        print("({}) - {}. ${}".format(p['codigo'], p['desc'], p['precio']))
 
     return selection
 
