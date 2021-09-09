@@ -7,7 +7,11 @@ def menu():
     while (not selection.isdigit()) or int(selection) > 4 or int(selection) < 1:
         selection = input("Error. Ingrese una opción: ")
     if selection == "1":
-        print(prod.search_product())
+        p = prod.search_product()
+        if p is not None:
+            print("({}) - {}. ${}".format(p['codigo'], p['desc'], p['precio']))
+        else:
+            print("No existe el producto")
     elif selection == "2":
         prod.new_bill()
     elif selection == "3":
