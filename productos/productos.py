@@ -20,15 +20,40 @@ catalogo = [
 
 
 def search_product():
-    code = int(input("Ingrese el código de producto: "))
-    for product in catalogo:
-        if product['codigo'] == code:
-            return product
+    code = input("Ingrese el código de producto: ")
+    if not code.isdigit():
+        return code
+    else:
+        code = int(code)
+        for product in catalogo:
+            if product['codigo'] == code:
+                return product
     return None
 
 
+def validate_quantity():
+    quantity = input("Ingrese la cantidad: ")
+    while not quantity.isdigit() or int(quantity) <= 0:
+        quantity = input("Error. Ingrese la cantidad: ")
+    return int(quantity)
+
+
 def new_bill():
-    return 0
+    bill = []
+    print("Ingrese F para terminar")
+    product = search_product()
+    while type(product) == dict or (product != "F"):
+        if type(product) == dict:
+            quantity = validate_quantity()
+            bill.append("({} x ${}) - {}. ${}".format(quantity, product['precio'],
+                                                    product['desc'], product['precio'] * quantity))
+        else:
+            print("No existe el producto")
+        product = search_product()
+
+    for item in bill:
+        print(item)
+    return bill
 
 
 def new_product():

@@ -8,7 +8,7 @@ def menu():
         selection = input("Error. Ingrese una opción: ")
     if selection == "1":
         p = prod.search_product()
-        if p is not None:
+        if type(p) == dict:
             print("({}) - {}. ${}".format(p['codigo'], p['desc'], p['precio']))
         else:
             print("No existe el producto")
