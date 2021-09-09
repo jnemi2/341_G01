@@ -21,13 +21,15 @@ catalogo = [
 
 def search_product():
     code = int(input("Ingrese el código de producto: "))
-    for product in prod.catalogo:
+    for product in catalogo:
         if product['codigo'] == code:
             return product
     return None
 
+
 def new_bill():
     return 0
+
 
 def new_product():
     return 0

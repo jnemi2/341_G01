@@ -6,11 +6,11 @@ def menu():
     selection = input("Ingrese una opción: ")
     while (not selection.isdigit()) or int(selection) > 4 or int(selection) < 1:
         selection = input("Error. Ingrese una opción: ")
-    if selection == 1:
+    if selection == "1":
         print(prod.search_product())
-    elif selection == 2:
+    elif selection == "2":
         prod.new_bill()
-    elif selection == 3:
+    elif selection == "3":
         prod.new_product()
 
     return selection
